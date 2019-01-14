@@ -1,0 +1,35 @@
+<h3>heroe <small> nombre ... </small></h3>
+
+<button class="btn btn-outline btn-danger" [routerLink]="['heroes']">
+	Regresar
+</button>
+
+<hr>
+
+<div class="row">
+	<div class="col-12">
+		
+		<form class="">
+			<div class="form-group">
+				<label> nombre </label>
+				<input type="text" name="nombre" class="form-control" placeholder="nombre del heroe" required>				
+			</div>
+			<div class="form-group">
+				<label> casa </label>
+				<input type="text" name="casa" class="form-control" placeholder="casa del heroe" required>				
+			</div>
+			<div class="form-group">
+				<label> bio </label>
+				<input type="text" name="bio" class="form-control" placeholder="bio del heroe" required>				
+			</div>
+
+			<div class="form-group">
+				<button class="btn btn-outline btn-success">
+					guardar cambios
+				</button>				
+			</div>
+
+		</form>
+
+	</div>
+</div>
