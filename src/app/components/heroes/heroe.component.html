@@ -4,32 +4,39 @@
 	Regresar
 </button>
 
+<button class="btn btn-outline-info btn-info" (click)="agregarNuevo(forma)">
+	Nuevo Heroe
+</button>
+
 <hr>
 
 <div class="row">
-	<div class="col-12">
-		
-		<form class="">
-			<div class="form-group">
-				<label> nombre </label>
-				<input type="text" name="nombre" class="form-control" placeholder="nombre del heroe" required>				
-			</div>
-			<div class="form-group">
-				<label> casa </label>
-				<input type="text" name="casa" class="form-control" placeholder="casa del heroe" required>				
-			</div>
-			<div class="form-group">
-				<label> bio </label>
-				<input type="text" name="bio" class="form-control" placeholder="bio del heroe" required>				
-			</div>
+    <div class="col-12">
 
-			<div class="form-group">
-				<button class="btn btn-outline btn-success">
+        <form class="" (ngSubmit)="guardar()" #forma="ngForm">
+            <div class="form-group">
+                <label> nombre </label>
+                <input type="text" [(ngModel)]="heroe.nombre" name="nombre" class="form-control" placeholder="nombre del heroe" required>
+            </div>
+            <div class="form-group">
+                <label> casa </label>
+                <select name="casa" class="form-control" [(ngModel)]="casa">
+					<option value="DC">DC</option>
+					<option value="Marvel">Marvel</option>
+				</select>
+            </div>
+            <div class="form-group">
+                <label> bio </label>
+                <input type="text" [(ngModel)]="heroe.bio" name="bio" class="form-control" placeholder="bio del heroe" required>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-outline btn-success" [disabled]="!forma.valid">
 					guardar cambios
-				</button>				
-			</div>
+				</button>
+            </div>
 
-		</form>
+        </form>
 
-	</div>
+    </div>
 </div>

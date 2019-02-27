@@ -1,26 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
+import { APP_ROUTING } from './app.routes';
 
-import { APP_ROUTING }  from './app.routes';
-
+import { HeroesService } from './services/heroes.service';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroeComponent } from './components/heroes/heroe.component';
 
+import { FormsModule } from '@angular/forms';
+import { KeysPipe } from './pipes/keys.pipe';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
-    HeroeComponent
+    HeroeComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,
-    APP_ROUTING
+    APP_ROUTING,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HeroesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

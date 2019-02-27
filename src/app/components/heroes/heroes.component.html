@@ -2,34 +2,45 @@
 
 
 <div class="row">
-	<button class="btn btn-outline" [routerLink]="['/heroe','nuevo']">add</button>
+    <button class="btn btn-outline" [routerLink]="['/heroe','nuevo']">add</button>
 </div>
 
 <div class="row">
-	<div class="col-12">
-		
-		<div class="table-resposive">
-			
-			<table class="table"> 
+    <div class="col-12">
 
-				<thead class="thead-inverse">
-					<tr>
-						<th>#</th>
-						<th>nombre</th>
-						<th>casa</th>
-						<th>opciones</th>
+        <div class="table-resposive">
 
-					</tr>
-				</thead>
-				<tbody>
-					
-				</tbody>
+            <table class="table">
 
-			</table>
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>#</th>
+                        <th>nombre</th>
+                        <th>casa</th>
+                        <th>opciones</th>
 
-		</div>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let k of heroes | keys ; index as i">
+                        <td>{{ i+1 }}</td>
+                        <td>{{ heroes[k].nombre }}</td>
+                        <td>{{ heroes[k].casa }}</td>
+                        <td>{{ heroes[k].bio }}</td>
+                        <td>
+                            <button [routerLink]="['/heroe',k]" class="btn btn-outline-warning">Editar</button>
+                            <button (click)="borrarHeroe(k)" class="btn btn-outline-danger text-left">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
 
-	</div>
+            </table>
 
 
+        </div>
+        <div class="alert alert-primary" role="alert" *ngIf="(heroes | keys).length == 0">
+            <strong>No hay Registros a mostrar</strong>
+        </div>
+
+    </div>
 </div>
